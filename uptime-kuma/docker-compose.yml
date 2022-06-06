@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: uptime_kuma_1
+    image: louislam/uptime-kuma:1
+    hostname: 'YOUR_URL
+    restart: always
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "3001:3001"
+    environment:
+      - TZ=Asia/Bangkok
+
+networks:
+  default:
+      name: nginxproxymanager_default
+      external: true
