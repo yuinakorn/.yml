@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    restart: always
+    hostname: 'YOUR_URL'
+    ports:
+      - '80:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+# First to set param with this code -> export GITLAB_HOME=/PATH_TO/YOUR_GITLAB_FOLDER
+      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/logs:/var/log/gitlab'
+      - '$GITLAB_HOME/data:/var/opt/gitlab'
+    shm_size: '256m'
+
+networks:
+  default:
+    name: 'YOUR_NETWORK'
+    external: true
