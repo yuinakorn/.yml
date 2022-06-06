@@ -4,7 +4,7 @@ services:
   web:
     container_name: uptime_kuma_1
     image: louislam/uptime-kuma:1
-    hostname: 'YOUR_URL
+    hostname: 'YOUR_URL'
     restart: always
     volumes:
       - ./data:/app/data
